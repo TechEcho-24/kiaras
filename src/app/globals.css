@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: var(--font-work-sans), "Work Sans", sans-serif;
+    --font-body: var(--font-poppins), "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    --brand-wine: #450206;
+    --brand-wine-dark: #2f0104;
+    --brand-wine-deep: #1f0003;
+    --brand-wine-light: #5a040a;
+    
+    --brand-gold-100: #fff3c9;
+    --brand-gold-200: #fae392;
+    --brand-gold-300: #dfb758;
+    --brand-gold-400: #c89837;
+    --brand-gold-500: #a87621;
+    --brand-gold-600: #855312;
+  }
+
+  body {
+    background-color: #faf8f5;
+    color: #231710;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Typography Utility Classes */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-sans {
+  font-family: var(--font-body);
+}
+
+/* Glassmorphism Effects (Requested by User) */
+.glass-header {
+  background: rgba(69, 2, 6, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(223, 183, 88, 0.22);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(223, 183, 88, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.glass-card {
+  background: rgba(69, 2, 6, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(223, 183, 88, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Multi-stop 6-Color Metallic Gold Gradient for Buttons (Requested by User) */
+.gold-gradient-btn {
+  background: linear-gradient(
+    135deg,
+    #936017 0%,
+    #c89837 20%,
+    #fae392 40%,
+    #c89837 60%,
+    #fff1b8 80%,
+    #855312 100%
+  );
+  background-size: 200% auto;
+  color: #2b0205;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(223, 183, 88, 0.32);
+}
+
+.gold-gradient-btn:hover {
+  background-position: right center;
+  box-shadow: 0 6px 24px rgba(250, 227, 146, 0.45);
+  transform: translateY(-1.5px);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #fff3c9 0%,
+    #fae392 25%,
+    #dfb758 50%,
+    #c89837 75%,
+    #936017 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bar {
+  background: linear-gradient(
+    90deg,
+    #855312 0%,
+    #c89837 20%,
+    #fae392 40%,
+    #dfb758 60%,
+    #fff1b8 80%,
+    #855312 100%
+  );
+  background-size: 200% auto;
+}
+
+/* Full Hero Background with #450206 */
+.hero-full-bg {
+  background-color: #450206;
+  background-image: radial-gradient(
+    circle at 50% 35%,
+    #5c050b 0%,
+    #450206 55%,
+    #330104 100%
+  );
+}
+
+/* Marquee infinite continuous scroll */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Shimmer animation for luxury skeleton loading */
+@keyframes shimmerPulse {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-luxury {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(223, 183, 88, 0.12) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerPulse 2s infinite ease-in-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #330104;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b0c13;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c89837;
+}
+
+/* Arched frame clip path / shape for About Us image */
+.arch-frame {
+  border-top-left-radius: 140px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
