@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/data/products";
 import { useQuote } from "@/context/QuoteContext";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -96,20 +96,15 @@ export function ProductCard({ product }: ProductCardProps) {
           </p>
         </div>
 
-        {/* 3. Bottom Row: Price removed, "Get Price" button opens Quote Form */}
-        <div className="pt-4 mt-3 border-t border-[#dfd4c2]/80 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5 text-[11px] font-medium text-[#855312] font-sans">
-            <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
-            <span>Royal Keepsake</span>
-          </div>
-
+        {/* 3. Bottom Row: "Get Price" CTA button */}
+        <div className="pt-3 mt-2 flex items-center justify-end">
           <button
             type="button"
             onClick={handleGetPrice}
-            className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.02em] text-[#240508] gold-gradient-btn shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 font-heading hover:scale-[1.02]"
+            className="w-full py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.02em] text-[#240508] gold-gradient-btn shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5 font-heading hover:scale-[1.02]"
           >
             <span>Get Price</span>
-            <ArrowRight className="w-3 h-3" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 

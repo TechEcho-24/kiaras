@@ -4,6 +4,7 @@ import React from "react";
 import { useQuote } from "@/context/QuoteContext";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { ArrowRight, ShieldCheck, HeartHandshake, Globe } from "lucide-react";
+import * as fpixel from "@/lib/fpixel";
 
 export function GetAQuoteSection() {
   const { openDrawer } = useQuote();
@@ -11,7 +12,7 @@ export function GetAQuoteSection() {
   return (
     <section 
       id="bespoke-quote" 
-      className="w-full bg-gradient-to-b from-[#fdfbf7] via-[#faf4e6] to-[#f4ead7] text-[#231710] py-20 md:py-28 border-t border-[#dfb758]/35 relative overflow-hidden"
+      className="w-full bg-gradient-to-b from-[#fdfbf7] via-[#faf4e6] to-[#f4ead7] text-[#231710] py-20 md:py-28 relative overflow-hidden"
     >
       {/* Subtle ambient luxury gold glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#dfb758]/15 rounded-full blur-3xl pointer-events-none" />
@@ -30,7 +31,7 @@ export function GetAQuoteSection() {
         </p>
 
         {/* 3 Centered Trust Highlights */}
-        <div className="pt-8 pb-10 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-medium text-[#4a3a30] font-sans">
+        <div className="pt-8 pb-10 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-medium text-[#4a3b32] font-sans">
           <div className="flex items-center gap-2 bg-white/70 px-4 py-2 rounded-full border border-[#e2d8c6] shadow-sm">
             <ShieldCheck className="w-4 h-4 text-[#855312]" />
             <span>Tailored Monogram Engraving</span>
@@ -45,24 +46,25 @@ export function GetAQuoteSection() {
           </div>
         </div>
 
-        {/* Centered Action Buttons (Matching User Request) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+        {/* Centered Action Buttons - 2 Columns on mobile, Flex row on desktop */}
+        <div className="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto">
           <button
             onClick={() => openDrawer()}
-            className="w-full sm:w-auto px-6 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 font-heading hover:scale-[1.02]"
+            className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-1.5 sm:gap-2 font-heading hover:scale-[1.02] whitespace-nowrap"
           >
-            <span>Get a Custom Quote</span>
-            <ArrowRight className="w-4 h-4" />
+            <span><span className="sm:hidden">Get Quote</span><span className="hidden sm:inline">Get a Custom Quote</span></span>
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
           </button>
 
           <a
             href="https://wa.me/919891993626?text=Hello%20Kiara's,%20I%20would%20like%20to%20consult%20for%20a%20bespoke%20luxury%20hamper%20order."
+            onClick={() => fpixel.event("Contact", { content_name: "Planning Event WhatsApp Consultation", channel: "WhatsApp" })}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-medium tracking-[0.02em] bg-white hover:bg-[#faf7f2] text-[#450206] border border-[#d8ccba] hover:border-[#450206] shadow-sm transition-all flex items-center justify-center gap-2 font-sans"
+            className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-sm font-medium tracking-[0.02em] bg-white hover:bg-[#faf7f2] text-[#450206] border border-[#d8ccba] hover:border-[#450206] shadow-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 font-sans whitespace-nowrap"
           >
-            <WhatsAppIcon className="w-4 h-4 shrink-0" />
-            <span>Chat on WhatsApp</span>
+            <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span><span className="sm:hidden">WhatsApp</span><span className="hidden sm:inline">Chat on WhatsApp</span></span>
           </a>
         </div>
 

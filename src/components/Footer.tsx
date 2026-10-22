@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Check
 } from "lucide-react";
+import * as fpixel from "@/lib/fpixel";
 
 export function Footer() {
   const { openDrawer } = useQuote();
@@ -29,7 +30,7 @@ export function Footer() {
   };
 
   return (
-    <footer id="contact" className="w-full bg-[#450206] text-[#faf7f2] border-t border-[#dfb758]/25 relative overflow-hidden">
+    <footer id="contact" className="w-full bg-[#450206] text-[#faf7f2] relative overflow-hidden">
       
 
       {/* Main Footer Links */}
@@ -120,7 +121,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/919891993626" target="_blank" rel="noopener noreferrer" className="hover:text-[#dfb758] transition-colors">
+                <a
+                  href="https://wa.me/919891993626"
+                  onClick={() => fpixel.event("Contact", { content_name: "Footer VIP Direct Chat", channel: "WhatsApp" })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#dfb758] transition-colors"
+                >
                   VIP Direct Chat (+91 98919 93626)
                 </a>
               </li>
@@ -136,7 +143,7 @@ export function Footer() {
             <div className="space-y-2 text-xs text-[#ede5d8]/85 font-sans">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-3.5 h-3.5 text-[#dfb758] mt-0.5 flex-shrink-0" />
-                <span>Kiara’s Design Studio, Mumbai &amp; Pan-India</span>
+                <span>Kiara’s Atelier, Delhi, India</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-[#dfb758] flex-shrink-0" />
@@ -185,10 +192,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 mt-12 border-t border-[#dfb758]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#ede5d8]/65 font-sans">
           <p>© 2026 Kiara’s. Decadence Redefined. All rights reserved.</p>
-          <div className="flex items-center space-x-6">
-            <span className="hover:text-[#dfb758] transition-colors cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-[#dfb758] transition-colors cursor-pointer">Terms of Service</span>
-            <span className="hover:text-[#dfb758] transition-colors cursor-pointer">Shipping & Delivery</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <Link href="/privacy-policy" className="hover:text-[#dfb758] transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-[#dfb758] transition-colors">Terms of Service</Link>
+            <Link href="/shipping-and-returns" className="hover:text-[#dfb758] transition-colors">Shipping &amp; Returns</Link>
           </div>
         </div>
 

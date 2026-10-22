@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Work_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { FacebookPixel } from "@/components/FacebookPixel";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
       className={`${workSans.variable} ${poppins.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-[#faf8f5] text-[#231710] selection:bg-[#dfb758] selection:text-[#450206]">
+        <FacebookPixel />
         {children}
         <FloatingWhatsApp />
       </body>

@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/data/products";
 import { useQuote } from "@/context/QuoteContext";
 import { ProductCard } from "@/components/ProductCard";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import * as fpixel from "@/lib/fpixel";
 import {
   Sparkles,
   Plus,
@@ -30,6 +31,16 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
   const [selectedImgIdx, setSelectedImgIdx] = useState(0);
   const [quantity, setQuantity] = useState(15);
   const [activeTab, setActiveTab] = useState<"inclusions" | "packaging" | "customization">("inclusions");
+
+  useEffect(() => {
+    fpixel.event("ViewContent", {
+      content_name: product.name,
+      content_category: product.collection,
+      content_ids: [product.id],
+      content_type: "product",
+      currency: "INR",
+    });
+  }, [product.id, product.name, product.collection]);
 
   const handleGetPrice = () => {
     addItem(product, quantity);
@@ -222,6 +233,12 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                fpixel.event("Contact", {
+                  content_name: `Product Detail: ${product.name}`,
+                  channel: "WhatsApp",
+                })
+              }
               className="w-full py-3 rounded-full bg-[#f9f5ee] hover:bg-[#f0e7d6] border border-[#dfd4c2] text-xs uppercase tracking-[0.02em] text-[#231710] font-semibold flex items-center justify-center gap-2 transition-colors font-sans hover:text-[#25D366]"
             >
               <WhatsAppIcon className="w-4 h-4 shrink-0" />

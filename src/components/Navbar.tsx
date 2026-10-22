@@ -12,6 +12,7 @@ import {
   X,
   Sparkles
 } from "lucide-react";
+import * as fpixel from "@/lib/fpixel";
 
 interface NavbarProps {
   onOpenSearch?: () => void;
@@ -143,6 +144,28 @@ export function Navbar({ onOpenSearch }: NavbarProps) {
                   {link.label}
                 </Link>
               ))}
+            </div>
+
+            {/* Mobile Quick Action Buttons - Side by Side in 1 row */}
+            <div className="pt-3 border-t border-[#dfb758]/20 grid grid-cols-2 gap-2.5">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openDrawer();
+                }}
+                className="py-2.5 px-3 text-xs font-semibold uppercase tracking-[0.02em] text-[#240508] gold-gradient-btn rounded-full shadow-md text-center font-heading"
+              >
+                Get a Quote
+              </button>
+              <a
+                href="https://wa.me/919891993626"
+                onClick={() => fpixel.event("Contact", { content_name: "Mobile Menu WhatsApp", channel: "WhatsApp" })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2.5 px-3 text-xs font-semibold tracking-[0.02em] text-[#dfb758] border border-[#dfb758]/40 hover:bg-white/5 rounded-full text-center font-sans flex items-center justify-center gap-1.5"
+              >
+                <span>WhatsApp</span>
+              </a>
             </div>
           </div>
         )}

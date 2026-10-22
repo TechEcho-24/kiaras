@@ -69,44 +69,44 @@ export function HeroSection() {
               </div>
 
               {/* Headline */}
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white font-normal leading-[1.12] tracking-[0.02em] drop-shadow-lg">
+              <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white font-normal leading-[1.14] sm:leading-[1.12] tracking-[0.02em] drop-shadow-lg">
                 Share The Joy <br />
                 <span className="gold-gradient-text font-serif italic">Of Diwali</span> In Royal Grandeur
               </h1>
 
               {/* Subtitle */}
-              <p className="text-sm sm:text-base md:text-lg text-[#ede5d8]/95 max-w-xl font-sans font-light leading-relaxed drop-shadow">
+              <p className="text-xs sm:text-base md:text-lg text-[#ede5d8]/95 max-w-xl font-sans font-light leading-relaxed drop-shadow">
                 Handcrafted keepsake boxes, fine silver-plated mementos, gourmet dry fruits, and artisanal treats curated to bring warmth, blessings, and elegance to your loved ones.
               </p>
 
-              {/* Dual CTAs */}
-              <div className="flex flex-col sm:flex-row items-center gap-3 pt-2 w-full sm:w-auto">
+              {/* Dual CTAs - Fits 1 line on mobile (grid 2 cols) or flex row on desktop */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 sm:gap-3 pt-2 w-full sm:w-auto">
                 <Link
                   href="/catalog?category=festive"
-                  className="w-full sm:w-auto px-7 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-2 group font-heading hover:scale-[1.02] transition-transform"
+                  className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2 group font-heading hover:scale-[1.02] transition-transform whitespace-nowrap"
                 >
-                  <span>Shop Diwali Hampers</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <span><span className="sm:hidden">Shop Diwali</span><span className="hidden sm:inline">Shop Diwali Hampers</span></span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1 shrink-0" />
                 </Link>
 
                 <button
                   onClick={() => openDrawer(heroProduct)}
-                  className="w-full sm:w-auto px-7 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-2 font-heading hover:scale-[1.02] transition-transform"
+                  className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2 font-heading hover:scale-[1.02] transition-transform whitespace-nowrap"
                 >
-                  <span>Personalize Gift</span>
-                  <Sparkles className="w-4 h-4 text-[#450206]" />
+                  <span><span className="sm:hidden">Personalize</span><span className="hidden sm:inline">Personalize Gift</span></span>
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#450206] shrink-0" />
                 </button>
               </div>
 
               {/* Trust proof */}
-              <div className="pt-6 grid grid-cols-2 gap-4 border-t border-[#dfb758]/25 w-full max-w-md text-left">
-                <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-[#dfb758] flex-shrink-0" />
-                  <span className="text-xs text-[#ede5d8]/90 font-sans font-medium">Handcrafted Keepsake Boxes</span>
+              <div className="pt-4 sm:pt-6 grid grid-cols-2 gap-2.5 sm:gap-4 border-t border-[#dfb758]/25 w-full max-w-md text-left">
+                <div className="flex items-center gap-1.5 sm:gap-2.5">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#dfb758] flex-shrink-0" />
+                  <span className="text-[11px] sm:text-xs text-[#ede5d8]/90 font-sans font-medium">Handcrafted Keepsakes</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <HeartHandshake className="w-4 h-4 text-[#dfb758] flex-shrink-0" />
-                  <span className="text-xs text-[#ede5d8]/90 font-sans font-medium">Pan-India Festive Delivery</span>
+                <div className="flex items-center gap-1.5 sm:gap-2.5">
+                  <HeartHandshake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#dfb758] flex-shrink-0" />
+                  <span className="text-[11px] sm:text-xs text-[#ede5d8]/90 font-sans font-medium">Pan-India Delivery</span>
                 </div>
               </div>
 
@@ -141,55 +141,55 @@ export function HeroSection() {
         </div>
 
         {/* Slide 2 Content: STRICTLY CENTERED (Clean Typography, No Blur Boxes) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex items-center justify-center py-16 md:py-24">
-          <div className="max-w-3xl mx-auto flex flex-col items-center text-center space-y-6 pt-4 pb-20 md:pb-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex items-center justify-center py-12 sm:py-16 md:py-24">
+          <div className="max-w-3xl mx-auto flex flex-col items-center text-center space-y-4 sm:space-y-6 pt-4 pb-16 sm:pb-20 md:pb-28">
             
             {/* Centered Glass Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/45 text-white text-[11px] sm:text-xs font-medium tracking-[0.02em] border border-white/20">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/45 text-white text-[10px] sm:text-xs font-medium tracking-[0.02em] border border-white/20">
               <span className="text-[#dfb758]">✦</span>
               <span className="font-sans">Bespoke Corporate & Executive Gifting</span>
               <span className="text-[#dfb758]">✦</span>
             </div>
 
             {/* Centered Headline */}
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white font-normal leading-[1.14] tracking-[0.02em] drop-shadow-lg">
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white font-normal leading-[1.14] tracking-[0.02em] drop-shadow-lg">
               Make A Lasting Impression <br />
               <span className="gold-gradient-text font-serif italic">On Your Clients</span> & Partners
             </h1>
 
             {/* Centered Subtitle */}
-            <p className="text-sm sm:text-base md:text-lg text-[#ede5d8]/95 max-w-2xl font-sans font-light leading-relaxed drop-shadow">
+            <p className="text-xs sm:text-base md:text-lg text-[#ede5d8]/95 max-w-2xl font-sans font-light leading-relaxed drop-shadow">
               Refined leadership hampers with customized company branding, premium keepsakes, and seamless pan-India bulk delivery tailored for corporate milestones and festive gratitude.
             </p>
 
-            {/* Centered CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full sm:w-auto">
+            {/* Centered CTAs - Fits 1 line on mobile */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2.5 sm:gap-3 pt-2 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto">
               <Link
                 href="/catalog?category=corporate"
-                className="w-full sm:w-auto px-7 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-2 group font-heading hover:scale-[1.02] transition-transform"
+                className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2 group font-heading hover:scale-[1.02] transition-transform whitespace-nowrap"
               >
-                <span>View Corporate Catalog</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <span><span className="sm:hidden">Catalog</span><span className="hidden sm:inline">View Corporate Catalog</span></span>
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1 shrink-0" />
               </Link>
 
               <button
                 onClick={() => openDrawer()}
-                className="w-full sm:w-auto px-7 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-2 font-heading hover:scale-[1.02] transition-transform"
+                className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn text-center shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2 font-heading hover:scale-[1.02] transition-transform whitespace-nowrap"
               >
-                <span>Request Bulk Quote</span>
-                <Sparkles className="w-4 h-4 text-[#450206]" />
+                <span><span className="sm:hidden">Get Quote</span><span className="hidden sm:inline">Request Bulk Quote</span></span>
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#450206] shrink-0" />
               </button>
             </div>
 
             {/* Centered Trust Proof */}
-            <div className="pt-6 flex flex-wrap items-center justify-center gap-6 border-t border-[#dfb758]/25 w-full max-w-lg">
-              <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-[#dfb758]" />
-                <span className="text-xs text-[#ede5d8]/90 font-sans font-medium">Custom Logo & Monogramming</span>
+            <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 border-t border-[#dfb758]/25 w-full max-w-lg">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#dfb758]" />
+                <span className="text-[11px] sm:text-xs text-[#ede5d8]/90 font-sans font-medium">Custom Monogramming</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-[#dfb758]" />
-                <span className="text-xs text-[#ede5d8]/90 font-sans font-medium">Pan-India Bulk Logistics</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#dfb758]" />
+                <span className="text-[11px] sm:text-xs text-[#ede5d8]/90 font-sans font-medium">Pan-India Bulk Logistics</span>
               </div>
             </div>
 
@@ -203,19 +203,19 @@ export function HeroSection() {
       {/* Previous Slide Arrow */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white border border-white/20 flex items-center justify-center transition-all opacity-70 hover:opacity-100 hover:scale-110 shadow-lg"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/70 text-white border border-white/20 flex items-center justify-center transition-all opacity-70 hover:opacity-100 hover:scale-110 shadow-lg"
         aria-label="Previous Slide"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       {/* Next Slide Arrow */}
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white border border-white/20 flex items-center justify-center transition-all opacity-70 hover:opacity-100 hover:scale-110 shadow-lg"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 hover:bg-black/70 text-white border border-white/20 flex items-center justify-center transition-all opacity-70 hover:opacity-100 hover:scale-110 shadow-lg"
         aria-label="Next Slide"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       {/* Slide Indicators / Dots */}

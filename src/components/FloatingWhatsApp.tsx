@@ -2,10 +2,18 @@
 
 import React from "react";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import * as fpixel from "@/lib/fpixel";
 
 export function FloatingWhatsApp() {
   const whatsappUrl =
     "https://wa.me/919891993626?text=Hello%20Kiara's,%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20hampers.";
+
+  const handleClick = () => {
+    fpixel.event("Contact", {
+      content_name: "Floating WhatsApp Concierge",
+      channel: "WhatsApp",
+    });
+  };
 
   return (
     <aside aria-label="WhatsApp Concierge" className="fixed bottom-6 right-6 z-40 flex items-center gap-2 group">
@@ -17,6 +25,7 @@ export function FloatingWhatsApp() {
       {/* Floating WhatsApp Button */}
       <a
         href={whatsappUrl}
+        onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Kiara's Concierge on WhatsApp (+91 98919 93626)"

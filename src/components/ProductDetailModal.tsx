@@ -179,10 +179,10 @@ export function ProductDetailModal() {
 
                 <button
                   onClick={handleAddToQuote}
-                  className="flex-1 py-3 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-[0.02em] flex items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all font-heading"
+                  className="flex-1 py-2.5 sm:py-3 px-3 sm:px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-[11px] sm:text-xs uppercase tracking-[0.02em] flex items-center justify-center gap-1.5 sm:gap-2 shadow-md hover:shadow-xl transition-all font-heading whitespace-nowrap"
                 >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Add to Quote ({quantity} units)</span>
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                  <span>Add to Quote <span className="hidden sm:inline">({quantity} units)</span></span>
                 </button>
               </div>
 

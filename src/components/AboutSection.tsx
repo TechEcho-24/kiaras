@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useQuote } from "@/context/QuoteContext";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { Award, CheckCircle2 } from "lucide-react";
+import * as fpixel from "@/lib/fpixel";
 
 export function AboutSection() {
   const { openDrawer } = useQuote();
@@ -62,24 +63,24 @@ export function AboutSection() {
 
           {/* Right Column: Floating White Card (Matching Image 4) */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="w-full max-w-xl bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(69,2,6,0.08)] border border-[#ede5d8] relative space-y-6">
+            <div className="w-full max-w-xl bg-white rounded-3xl p-5 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(69,2,6,0.08)] border border-[#ede5d8] relative space-y-5 sm:space-y-6">
               
               {/* Badge: ABOUT US */}
               <div>
-                <span className="inline-block px-4 py-1 rounded-full text-xs font-bold tracking-[0.02em] uppercase bg-[#450206]/10 text-[#450206] border border-[#dfb758]/40 font-sans">
+                <span className="inline-block px-3.5 sm:px-4 py-1 rounded-full text-[11px] sm:text-xs font-bold tracking-[0.02em] uppercase bg-[#450206]/10 text-[#450206] border border-[#dfb758]/40 font-sans">
                   About Us
                 </span>
               </div>
 
               {/* Heading */}
               <div>
-                <h2 className="font-heading text-3xl sm:text-4xl text-[#1a0204] font-bold leading-tight">
+                <h2 className="font-heading text-2xl sm:text-4xl text-[#1a0204] font-bold leading-tight">
                   Crafting Joy, One Luxury Hamper at a Time
                 </h2>
               </div>
 
               {/* Body Text matching screenshot */}
-              <div className="space-y-4 text-sm sm:text-base text-[#4a3b32] font-sans font-light leading-relaxed">
+              <div className="space-y-3 sm:space-y-4 text-xs sm:text-base text-[#4a3b32] font-sans font-light leading-relaxed">
                 <p>
                   We’re a boutique studio dedicated to thoughtful gifting. From gourmet selections to handcrafted keepsakes, every hamper is curated with purpose, packed with care, and designed to make moments unforgettable.
                 </p>
@@ -89,42 +90,43 @@ export function AboutSection() {
               </div>
 
               {/* Key Pillars */}
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#1a0204] font-sans">
-                  <CheckCircle2 className="w-4 h-4 text-[#dfb758]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#dfb758] shrink-0" />
                   <span>Curated Fine Inclusions</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#1a0204] font-sans">
-                  <CheckCircle2 className="w-4 h-4 text-[#dfb758]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#dfb758] shrink-0" />
                   <span>Bespoke Wax Seals & Ribbons</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#1a0204] font-sans">
-                  <CheckCircle2 className="w-4 h-4 text-[#dfb758]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#dfb758] shrink-0" />
                   <span>Corporate Branding Available</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#1a0204] font-sans">
-                  <CheckCircle2 className="w-4 h-4 text-[#dfb758]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#dfb758] shrink-0" />
                   <span>Global Secure Shipping</span>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              {/* Action Buttons - 2 Columns on mobile, Flex row on desktop */}
+              <div className="pt-3 sm:pt-4 grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 sm:gap-4">
                 <button
                   onClick={() => openDrawer()}
-                  className="px-7 py-3.5 text-xs font-bold uppercase tracking-[0.02em] text-[#240508] gold-gradient-btn rounded-full shadow-lg text-center font-heading"
+                  className="w-full sm:w-auto px-3 sm:px-7 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.02em] text-[#240508] gold-gradient-btn rounded-full shadow-lg text-center font-heading whitespace-nowrap"
                 >
-                  Start Custom Order
+                  <span><span className="sm:hidden">Custom Order</span><span className="hidden sm:inline">Start Custom Order</span></span>
                 </button>
 
                 <a
                   href="https://wa.me/919891993626?text=Hello%20Kiara's,%20I%20would%20love%20to%20discuss%20a%20custom%20hamper%20order."
+                  onClick={() => fpixel.event("Contact", { content_name: "About Us Custom Hamper WhatsApp", channel: "WhatsApp" })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 text-xs font-semibold tracking-[0.02em] text-[#450206] hover:bg-[#450206]/5 border border-[#450206]/30 rounded-full text-center transition-colors flex items-center justify-center gap-2.5 font-sans"
+                  className="w-full sm:w-auto px-3 sm:px-6 py-2.5 sm:py-3.5 text-[11px] sm:text-xs font-semibold tracking-[0.02em] text-[#450206] hover:bg-[#450206]/5 border border-[#450206]/30 rounded-full text-center transition-colors flex items-center justify-center gap-1.5 sm:gap-2.5 font-sans whitespace-nowrap"
                 >
-                  <WhatsAppIcon className="w-4 h-4 shrink-0" />
-                  <span>Chat on WhatsApp</span>
+                  <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                  <span><span className="sm:hidden">WhatsApp</span><span className="hidden sm:inline">Chat on WhatsApp</span></span>
                 </a>
               </div>
 

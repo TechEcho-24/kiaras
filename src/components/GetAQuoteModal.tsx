@@ -20,6 +20,7 @@ import {
   Calendar,
   Package
 } from "lucide-react";
+import * as fpixel from "@/lib/fpixel";
 
 export function GetAQuoteModal() {
   const {
@@ -110,6 +111,14 @@ export function GetAQuoteModal() {
     };
 
     try {
+      // Fire Meta Pixel Lead Event
+      fpixel.event("Lead", {
+        content_name: "Bespoke Hamper Quote Request",
+        content_category: formData.occasion,
+        total_units: totalItems,
+        currency: "INR",
+      });
+
       await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
         method: "POST",
         headers: {

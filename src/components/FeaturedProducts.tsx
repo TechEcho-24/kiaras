@@ -17,7 +17,7 @@ export function FeaturedProducts({
   const displayedProducts = PRODUCTS.slice(0, limit);
 
   return (
-    <section id="products" className="w-full bg-[#faf8f5] text-[#231710] py-16 md:py-24 border-b border-[#ede5d8]">
+    <section id="products" className="w-full bg-[#faf8f5] text-[#231710] py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header exactly matching User's Reference Screenshot (media_1792044109586.png) */}

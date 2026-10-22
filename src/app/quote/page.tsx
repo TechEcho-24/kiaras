@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Toast } from "@/components/Toast";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { PRODUCTS, Product } from "@/data/products";
+import * as fpixel from "@/lib/fpixel";
 import {
   Sparkles,
   Plus,
@@ -111,6 +112,15 @@ function QuotePageContent() {
         },
         body: JSON.stringify(payload),
       });
+
+      // Facebook Pixel Lead Event
+      fpixel.event("Lead", {
+        content_name: "Bespoke Hamper Quote Request",
+        content_category: formData.occasion,
+        currency: "INR",
+        value: totalItems * 5000,
+        total_units: totalItems,
+      });
     } catch (error) {
       console.warn("Quote email dispatch:", error);
     } finally {
@@ -184,6 +194,13 @@ Please share the bespoke proposal and pricing.`;
                   href={`https://wa.me/919891993626?text=${generateWhatsAppMessage()}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    fpixel.event("Contact", {
+                      content_name: "Quote Confirmation WhatsApp Concierge",
+                      channel: "WhatsApp",
+                      quote_id: quoteReferenceId,
+                    })
+                  }
                   className="w-full py-3.5 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl font-heading"
                 >
                   <WhatsAppIcon className="w-4 h-4 shrink-0" />
