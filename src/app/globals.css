@@ -22,10 +22,16 @@
     background-color: #faf8f5;
     color: #231710;
     font-family: var(--font-body);
+    letter-spacing: 0.02em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+  }
+
+  header, nav {
+    letter-spacing: 0.02em;
   }
 }
 
@@ -38,11 +44,8 @@
   font-family: var(--font-body);
 }
 
-/* Glassmorphism Effects (Requested by User) */
 .glass-header {
-  background: rgba(69, 2, 6, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #450206;
   border-bottom: 1px solid rgba(223, 183, 88, 0.22);
 }
 
@@ -76,7 +79,7 @@
   background-size: 200% auto;
   color: #2b0205;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 18px rgba(223, 183, 88, 0.32);
 }

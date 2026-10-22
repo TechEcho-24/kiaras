@@ -64,7 +64,7 @@ function QuotePageContent() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) {
       alert("Please select at least one hamper for your quote.");
@@ -72,12 +72,51 @@ function QuotePageContent() {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      const generatedId = `KQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-      setQuoteReferenceId(generatedId);
+    const generatedId = `KQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    setQuoteReferenceId(generatedId);
+
+    const hamperDetails = items
+      .map(
+        (item, idx) =>
+          `${idx + 1}. ${item.product.name} (Collection: ${item.product.collection}, Qty: ${item.quantity}, Price: ${item.product.price})`
+      )
+      .join(" | ");
+
+    const payload = {
+      _subject: `New Luxury Hamper Quote: ${formData.name || "Patron"} (${generatedId})`,
+      _cc: "Sweta.hawkdesigning@gmail.com",
+      _template: "table",
+      _captcha: "false",
+      Reference_ID: generatedId,
+      Customer_Name: formData.name || "Not provided",
+      Phone_Number: formData.phone || "Not provided",
+      Email: formData.email || "Not provided",
+      Occasion: formData.occasion,
+      Delivery_Location: formData.location,
+      Target_Delivery_Date: formData.deliveryDate || "Flexible",
+      Monogramming: formData.monogramming ? "Yes (Included)" : "No",
+      Custom_Ribbon: formData.customRibbon ? "Yes (Included)" : "No",
+      Wax_Seal: formData.waxSeal ? "Yes (Included)" : "No",
+      Selected_Hampers: hamperDetails,
+      Total_Units: totalItems,
+      Special_Notes: formData.specialNotes || "None",
+    };
+
+    try {
+      await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.warn("Quote email dispatch:", error);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1200);
+    }
   };
 
   const generateWhatsAppMessage = () => {
@@ -134,10 +173,10 @@ Please share the bespoke proposal and pricing.`;
                 <CheckCircle2 className="w-10 h-10 text-[#450206]" />
               </div>
               <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-[#231710]">
-                Quote Proposal Logged
+                Quote Request Dispatched
               </h2>
               <p className="text-xs sm:text-sm text-[#6b584c] font-sans font-light leading-relaxed">
-                Thank you, {formData.name || "Esteemed Patron"}. Your bespoke request for {totalItems} hampers has been received. Reference ID: <strong className="text-[#450206] font-mono">{quoteReferenceId}</strong>.
+                Thank you, {formData.name || "Esteemed Patron"}. Your bespoke request for {totalItems} hampers has been dispatched to <strong className="text-[#450206]">anujsachan98@gmail.com</strong> &amp; <strong className="text-[#450206]">Sweta.hawkdesigning@gmail.com</strong>. Reference ID: <strong className="text-[#450206] font-mono">{quoteReferenceId}</strong>.
               </p>
 
               <div className="space-y-3 pt-4">

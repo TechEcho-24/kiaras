@@ -31,12 +31,11 @@ export function ClassApartSection() {
     <section className="w-full bg-[#ffffff] text-[#1a0204] py-16 md:py-24 border-b border-[#ede5d8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Heading matching Image 1 */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#1a0204] font-bold tracking-tight">
+        {/* Main Heading */}
+        <div className="text-center max-w-5xl mx-auto mb-12 md:mb-16">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[44px] text-[#1a0204] font-bold tracking-[0.02em] sm:whitespace-nowrap">
             Why Our Hampers Are a Class Apart
           </h2>
-          <div className="w-16 h-0.5 bg-[#450206] mx-auto mt-4" />
         </div>
 
         {/* 4 Feature Columns matching Image 1 */}

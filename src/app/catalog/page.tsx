@@ -52,13 +52,13 @@ function CatalogContent() {
           
           {/* Header Banner */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#450206]/10 border border-[#450206]/20 text-[#450206] text-xs font-semibold uppercase tracking-[0.2em] mb-3 font-sans">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#450206]/10 border border-[#450206]/20 text-[#450206] text-xs font-semibold uppercase tracking-[0.02em] mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
               <span>Full Artisanal Catalog</span>
               <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
             </div>
             
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#231710] font-bold tracking-tight">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#231710] font-bold tracking-[0.02em]">
               Curated Luxury Hampers &amp; Boxes
             </h1>
             
@@ -151,7 +151,7 @@ function CatalogContent() {
                   setSelectedCategory("All");
                   setSearchQuery("");
                 }}
-                className="mt-4 px-6 py-2.5 text-xs uppercase tracking-wider gold-gradient-btn text-[#240508] font-bold rounded-full font-heading"
+                className="mt-4 px-6 py-2.5 text-xs uppercase tracking-[0.02em] gold-gradient-btn text-[#240508] font-bold rounded-full font-heading"
               >
                 Reset All Filters
               </button>

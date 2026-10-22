@@ -3,7 +3,7 @@
 import React from "react";
 import { useQuote } from "@/context/QuoteContext";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
-import { Sparkles, ArrowRight, ShieldCheck, HeartHandshake, Globe } from "lucide-react";
+import { ArrowRight, ShieldCheck, HeartHandshake, Globe } from "lucide-react";
 
 export function GetAQuoteSection() {
   const { openDrawer } = useQuote();
@@ -18,24 +18,14 @@ export function GetAQuoteSection() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
         
-        {/* Centered Luxury Pill Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#dfb758]/20 border border-[#dfb758]/50 text-[#855312] text-xs font-semibold uppercase tracking-[0.22em] mb-6 font-sans">
-          <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
-          <span>Bespoke Concierge & Royal Gifting</span>
-          <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
-        </div>
-
         {/* Centered Heading with Work Sans */}
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-[#231710] font-normal tracking-tight max-w-3xl leading-[1.18]">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-[#231710] font-normal tracking-[0.02em] max-w-3xl leading-[1.18]">
           Planning a Royal Celebration, <br className="hidden sm:inline" />
           <span className="font-serif italic text-[#450206]">Wedding, or Corporate Event?</span>
         </h2>
 
-        {/* Delicate Gold Accent Bar */}
-        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#dfb758] to-transparent my-6" />
-
         {/* Centered Subtitle with Poppins */}
-        <p className="text-sm sm:text-base md:text-lg text-[#5c4a40] font-sans font-light leading-relaxed max-w-2xl">
+        <p className="text-sm sm:text-base md:text-lg text-[#5c4a40] font-sans font-light leading-relaxed max-w-2xl mt-5">
           From palatial trousseau presentations to custom-engraved brass canisters, Kiara’s master artisans create bespoke heirlooms tailored to your grandest celebrations.
         </p>
 
@@ -56,10 +46,10 @@ export function GetAQuoteSection() {
         </div>
 
         {/* Centered Action Buttons (Matching User Request) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
           <button
             onClick={() => openDrawer()}
-            className="w-full sm:w-auto px-9 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest text-[#240508] gold-gradient-btn shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2.5 font-heading hover:scale-[1.02]"
+            className="w-full sm:w-auto px-6 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-semibold tracking-[0.02em] text-[#240508] gold-gradient-btn shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 font-heading hover:scale-[1.02]"
           >
             <span>Get a Custom Quote</span>
             <ArrowRight className="w-4 h-4" />
@@ -69,7 +59,7 @@ export function GetAQuoteSection() {
             href="https://wa.me/919891993626?text=Hello%20Kiara's,%20I%20would%20like%20to%20consult%20for%20a%20bespoke%20luxury%20hamper%20order."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider bg-white hover:bg-[#faf7f2] text-[#450206] border border-[#d8ccba] hover:border-[#450206] shadow-md transition-all flex items-center justify-center gap-2.5 font-sans"
+            className="w-full sm:w-auto px-6 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-medium tracking-[0.02em] bg-white hover:bg-[#faf7f2] text-[#450206] border border-[#d8ccba] hover:border-[#450206] shadow-sm transition-all flex items-center justify-center gap-2 font-sans"
           >
             <WhatsAppIcon className="w-4 h-4 shrink-0" />
             <span>Chat on WhatsApp</span>

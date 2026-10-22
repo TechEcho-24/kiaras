@@ -19,6 +19,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Kiara's | Decadence Redefined — Luxury Hampers & Bespoke Gifting",
   description: "Handcrafted luxury hampers, bespoke gift boxes, wedding trousseau packaging, and corporate gifting curated with elegance and perfection.",
+  icons: {
+    icon: "/newlogo.png",
+    shortcut: "/newlogo.png",
+    apple: "/newlogo.png",
+  },
 };
 
 export default function RootLayout({

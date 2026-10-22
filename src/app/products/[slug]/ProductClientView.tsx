@@ -83,7 +83,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
             
             {/* Top-left Luxury Pill */}
             <div className="absolute top-4 left-4 z-10 pointer-events-none">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider bg-[#a8822d] text-white shadow-md font-sans">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-[0.02em] bg-[#a8822d] text-white shadow-md font-sans">
                 <Sparkles className="w-3.5 h-3.5" />
                 {product.tag || "Signature Curation"}
               </span>
@@ -146,10 +146,10 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
           
           {/* Header & Title */}
           <div className="space-y-2">
-            <span className="text-xs uppercase font-bold tracking-widest text-[#855312] block font-heading">
+            <span className="text-xs uppercase font-bold tracking-[0.02em] text-[#855312] block font-heading">
               {product.collection}
             </span>
-            <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[#231710] font-bold leading-tight">
+            <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[#231710] font-bold leading-tight tracking-[0.02em]">
               {product.name}
             </h1>
             <p className="text-xs sm:text-sm text-[#6b584c] italic">
@@ -160,7 +160,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
           {/* Bespoke Quote Banner (Price removed as requested) */}
           <div className="p-4 rounded-2xl bg-[#faf7f2] border border-[#e8dfcf] space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-xs uppercase tracking-wider text-[#855312] font-bold font-heading flex items-center gap-1.5">
+              <span className="text-xs uppercase tracking-[0.02em] text-[#855312] font-bold font-heading flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
                 Pricing Upon Curation
               </span>
@@ -176,7 +176,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
           {/* Quantity Selector & Get Price CTA */}
           <div className="pt-2 space-y-3 font-sans">
             <div className="flex items-center justify-between">
-              <label htmlFor="hamper-qty" className="text-xs font-bold uppercase tracking-wider text-[#231710] font-heading">
+              <label htmlFor="hamper-qty" className="text-xs font-bold uppercase tracking-[0.02em] text-[#231710] font-heading">
                 Estimated Units Needed:
               </label>
               <span className="text-[11px] text-[#8c786a]">Min. suggested 5 units</span>
@@ -210,7 +210,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
               <button
                 type="button"
                 onClick={handleGetPrice}
-                className="flex-1 py-3.5 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all font-heading hover:scale-[1.02] cursor-pointer"
+                className="flex-1 py-3.5 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-[0.02em] flex items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all font-heading hover:scale-[1.02] cursor-pointer"
               >
                 <span>Get Price</span>
                 <ArrowRight className="w-4 h-4" />
@@ -222,7 +222,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 rounded-full bg-[#f9f5ee] hover:bg-[#f0e7d6] border border-[#dfd4c2] text-xs uppercase tracking-wider text-[#231710] font-semibold flex items-center justify-center gap-2 transition-colors font-sans hover:text-[#25D366]"
+              className="w-full py-3 rounded-full bg-[#f9f5ee] hover:bg-[#f0e7d6] border border-[#dfd4c2] text-xs uppercase tracking-[0.02em] text-[#231710] font-semibold flex items-center justify-center gap-2 transition-colors font-sans hover:text-[#25D366]"
             >
               <WhatsAppIcon className="w-4 h-4 shrink-0" />
               <span>Inquire via WhatsApp (+91 98919 93626)</span>
@@ -235,7 +235,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
               <button
                 type="button"
                 onClick={() => setActiveTab("inclusions")}
-                className={`text-xs font-bold uppercase tracking-wider pb-1 transition-colors ${
+                className={`text-xs font-bold uppercase tracking-[0.02em] pb-1 transition-colors ${
                   activeTab === "inclusions"
                     ? "text-[#450206] border-b-2 border-[#450206]"
                     : "text-[#8c786a] hover:text-[#231710]"
@@ -247,7 +247,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
               <button
                 type="button"
                 onClick={() => setActiveTab("packaging")}
-                className={`text-xs font-bold uppercase tracking-wider pb-1 transition-colors ${
+                className={`text-xs font-bold uppercase tracking-[0.02em] pb-1 transition-colors ${
                   activeTab === "packaging"
                     ? "text-[#450206] border-b-2 border-[#450206]"
                     : "text-[#8c786a] hover:text-[#231710]"
@@ -259,7 +259,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
               <button
                 type="button"
                 onClick={() => setActiveTab("customization")}
-                className={`text-xs font-bold uppercase tracking-wider pb-1 transition-colors ${
+                className={`text-xs font-bold uppercase tracking-[0.02em] pb-1 transition-colors ${
                   activeTab === "customization"
                     ? "text-[#450206] border-b-2 border-[#450206]"
                     : "text-[#8c786a] hover:text-[#231710]"
@@ -326,7 +326,7 @@ export function ProductClientView({ product, related }: ProductClientViewProps) 
       {related.length > 0 && (
         <section aria-label="You May Also Like" className="mt-20 pt-14 border-t border-[#e5ddcf]">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#855312] font-semibold font-sans block mb-2">
+            <span className="text-xs uppercase tracking-[0.02em] text-[#855312] font-semibold font-sans block mb-2">
               Curated Royal Hampers
             </span>
             <h2 className="font-heading text-2xl sm:text-4xl font-bold text-[#231710]">

@@ -12,7 +12,7 @@ export function TextRibbonMarquee() {
         {repeated.map((text, idx) => (
           <span
             key={idx}
-            className="font-heading text-lg sm:text-xl md:text-2xl text-[#450206] tracking-wide font-normal mx-4 inline-block"
+            className="font-heading text-lg sm:text-xl md:text-2xl text-[#450206] tracking-[0.02em] font-normal mx-4 inline-block"
           >
             {text}
           </span>

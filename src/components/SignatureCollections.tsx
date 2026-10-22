@@ -4,30 +4,22 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SIGNATURE_COLLECTIONS } from "@/data/products";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function SignatureCollections() {
   const [, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section id="collections" className="w-full bg-[#faf8f5] text-[#231710] py-16 md:py-24 border-b border-[#ede5d8] relative">
+    <section id="collections" className="w-full bg-[#faf8f5] text-[#231710] py-16 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header matching clean light luxury aesthetic */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-[#855312] bg-[#f2ebd9] border border-[#dfb758]/40 mb-3 font-sans">
-            <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
-            <span>Curated Grandeur</span>
-            <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
-          </div>
-          
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#231710] font-normal tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#231710] font-normal tracking-[0.02em]">
             Our Signature Hamper Collections
           </h2>
-          
-          <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#dfb758] to-transparent mx-auto my-4" />
 
-          <p className="text-xs sm:text-sm md:text-base text-[#6b584c] leading-relaxed font-sans font-light max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-[#6b584c] leading-relaxed font-sans font-light max-w-2xl mx-auto mt-4">
             From <strong className="text-[#231710] font-medium">chocolate luxury gift hampers</strong> to <strong className="text-[#231710] font-medium">luxury food hampers</strong> and <strong className="text-[#231710] font-medium">custom hampers</strong>, our curated selections are designed to bring joy, exclusivity, and elegance.
           </p>
         </div>
@@ -51,7 +43,7 @@ export function SignatureCollections() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent transition-opacity duration-300" />
             
             <div className="relative z-10 space-y-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#dfb758] glass-badge px-2.5 py-1 rounded-full font-sans inline-block">
+              <span className="text-[10px] uppercase font-semibold tracking-[0.02em] text-white glass-badge bg-black/40 px-3 py-1 rounded-full font-sans inline-block border border-white/20">
                 Confectionery & Treats
               </span>
               <h3 className="font-heading text-xl sm:text-2xl text-white font-semibold group-hover:text-[#dfb758] transition-colors">
@@ -63,10 +55,10 @@ export function SignatureCollections() {
               <div className="pt-2">
                 <Link
                   href="/catalog?category=Gourmet%20Gift%20Hampers"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#dfb758] uppercase tracking-wider group-hover:underline underline-offset-4 font-sans"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white uppercase tracking-[0.02em] hover:text-[#ede5d8] group-hover:underline underline-offset-4 font-sans"
                 >
                   <span>Explore Collection</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             </div>
@@ -88,7 +80,7 @@ export function SignatureCollections() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent transition-opacity duration-300" />
             
             <div className="relative z-10 space-y-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#dfb758] glass-badge px-2.5 py-1 rounded-full font-sans inline-block">
+              <span className="text-[10px] uppercase font-semibold tracking-[0.02em] text-white glass-badge bg-black/40 px-3 py-1 rounded-full font-sans inline-block border border-white/20">
                 Diwali & Eid Specials
               </span>
               <h3 className="font-heading text-xl sm:text-2xl text-white font-semibold group-hover:text-[#dfb758] transition-colors">
@@ -100,10 +92,10 @@ export function SignatureCollections() {
               <div className="pt-2">
                 <Link
                   href="/catalog?category=Festive%20Gifting"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#dfb758] uppercase tracking-wider group-hover:underline underline-offset-4 font-sans"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white uppercase tracking-[0.02em] hover:text-[#ede5d8] group-hover:underline underline-offset-4 font-sans"
                 >
                   <span>Explore Collection</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             </div>
@@ -125,7 +117,7 @@ export function SignatureCollections() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent transition-opacity duration-300" />
             
             <div className="relative z-10 space-y-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#dfb758] glass-badge px-2.5 py-1 rounded-full font-sans inline-block">
+              <span className="text-[10px] uppercase font-semibold tracking-[0.02em] text-white glass-badge bg-black/40 px-3 py-1 rounded-full font-sans inline-block border border-white/20">
                 Made-to-Order
               </span>
               <h3 className="font-heading text-xl sm:text-2xl text-white font-semibold group-hover:text-[#dfb758] transition-colors">
@@ -137,10 +129,10 @@ export function SignatureCollections() {
               <div className="pt-2">
                 <Link
                   href="/catalog?category=Custom%20Orders"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#dfb758] uppercase tracking-wider group-hover:underline underline-offset-4 font-sans"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white uppercase tracking-[0.02em] hover:text-[#ede5d8] group-hover:underline underline-offset-4 font-sans"
                 >
                   <span>Explore Collection</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             </div>
@@ -162,7 +154,7 @@ export function SignatureCollections() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent transition-opacity duration-300" />
             
             <div className="relative z-10 space-y-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#dfb758] glass-badge px-2.5 py-1 rounded-full font-sans inline-block">
+              <span className="text-[10px] uppercase font-semibold tracking-[0.02em] text-white glass-badge bg-black/40 px-3 py-1 rounded-full font-sans inline-block border border-white/20">
                 Executive & Bulk Gifting
               </span>
               <h3 className="font-heading text-xl sm:text-2xl text-white font-semibold group-hover:text-[#dfb758] transition-colors">
@@ -174,10 +166,10 @@ export function SignatureCollections() {
               <div className="pt-2">
                 <Link
                   href="/catalog?category=Corporate%20Gifting"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#dfb758] uppercase tracking-wider group-hover:underline underline-offset-4 font-sans"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white uppercase tracking-[0.02em] hover:text-[#ede5d8] group-hover:underline underline-offset-4 font-sans"
                 >
                   <span>Explore Collection</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             </div>
@@ -199,7 +191,7 @@ export function SignatureCollections() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent transition-opacity duration-300" />
             
             <div className="relative z-10 space-y-2 max-w-xl">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#dfb758] glass-badge px-2.5 py-1 rounded-full font-sans inline-block">
+              <span className="text-[10px] uppercase font-semibold tracking-[0.02em] text-white glass-badge bg-black/40 px-3 py-1 rounded-full font-sans inline-block border border-white/20">
                 Bridal & Royal Heirlooms
               </span>
               <h3 className="font-heading text-xl sm:text-2xl md:text-3xl text-white font-semibold group-hover:text-[#dfb758] transition-colors">
@@ -211,10 +203,10 @@ export function SignatureCollections() {
               <div className="pt-2">
                 <Link
                   href="/catalog?category=Wedding%20%26%20Trousseau%20Packaging"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#dfb758] uppercase tracking-wider group-hover:underline underline-offset-4 font-sans"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-white uppercase tracking-[0.02em] hover:text-[#ede5d8] group-hover:underline underline-offset-4 font-sans"
                 >
                   <span>Explore Collection</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             </div>

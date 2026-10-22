@@ -20,7 +20,7 @@ export function Toast() {
         </div>
         <button
           onClick={() => openDrawer()}
-          className="ml-2 text-[11px] uppercase tracking-wider text-[#dfb758] font-bold hover:underline"
+          className="ml-2 text-[11px] uppercase tracking-[0.02em] text-[#dfb758] font-bold hover:underline"
         >
           View Quote
         </button>

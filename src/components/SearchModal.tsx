@@ -60,7 +60,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           )}
           <button
             onClick={onClose}
-            className="text-xs uppercase tracking-wider text-[#dfb758] font-bold px-2 py-1 rounded hover:bg-white/5 font-sans"
+            className="text-xs uppercase tracking-[0.02em] text-[#dfb758] font-bold px-2 py-1 rounded hover:bg-white/5 font-sans"
           >
             ESC
           </button>
@@ -105,7 +105,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onClose();
                       openDrawer(product);
                     }}
-                    className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider gold-gradient-btn text-[#240508] font-heading"
+                    className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.02em] gold-gradient-btn text-[#240508] font-heading"
                   >
                     Quote
                   </button>

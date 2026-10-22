@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BrandLogo } from "./BrandLogo";
+import Image from "next/image";
 import { useQuote } from "@/context/QuoteContext";
 import {
   Sparkles,
@@ -39,7 +39,16 @@ export function Footer() {
           {/* Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
             <div className="flex justify-start">
-              <BrandLogo variant="gold" />
+              <Link href="/" className="inline-block transition-transform duration-300 hover:scale-[1.02]" aria-label="Kiara's Home">
+                <Image
+                  src="/newlogo.png"
+                  alt="Kiara's - Decadence Redefined"
+                  width={220}
+                  height={110}
+                  className="h-16 sm:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                  priority
+                />
+              </Link>
             </div>
             <p className="text-xs sm:text-sm text-[#ede5d8]/80 leading-relaxed font-sans font-light">
               Kiara’s transforms the tradition of gifting into an enduring art form. Handcrafted keepsake boxes, palatial miniature art, and custom gourmet selections curated with royal elegance.
@@ -52,7 +61,7 @@ export function Footer() {
 
           {/* Hamper Collections (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#dfb758]">
+            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.02em] text-[#dfb758]">
               Curated Collections
             </h4>
             <ul className="space-y-2.5 text-xs text-[#ede5d8]/85 font-sans">
@@ -86,7 +95,7 @@ export function Footer() {
 
           {/* Concierge & Atelier (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#dfb758]">
+            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.02em] text-[#dfb758]">
               Concierge
             </h4>
             <ul className="space-y-2.5 text-xs text-[#ede5d8]/85 font-sans">
@@ -120,7 +129,7 @@ export function Footer() {
 
           {/* Newsletter & Atelier Contact (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#dfb758]">
+            <h4 className="font-heading text-xs font-bold uppercase tracking-[0.02em] text-[#dfb758]">
               Atelier & Contact
             </h4>
             

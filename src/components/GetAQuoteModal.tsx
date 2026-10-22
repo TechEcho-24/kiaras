@@ -68,7 +68,7 @@ export function GetAQuoteModal() {
     setDropdownOpen(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) {
       alert("Please add at least one hamper to your quote request.");
@@ -80,12 +80,50 @@ export function GetAQuoteModal() {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      const generatedId = `KQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-      setQuoteReferenceId(generatedId);
+    const generatedId = `KQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    setQuoteReferenceId(generatedId);
+
+    const hamperDetails = items
+      .map(
+        (item, idx) =>
+          `${idx + 1}. ${item.product.name} (Collection: ${item.product.collection}, Qty: ${item.quantity}, Price: ${item.product.price})`
+      )
+      .join(" | ");
+
+    const payload = {
+      _subject: `New Luxury Hamper Quote: ${formData.name} (${generatedId})`,
+      _cc: "Sweta.hawkdesigning@gmail.com",
+      _template: "table",
+      _captcha: "false",
+      Reference_ID: generatedId,
+      Customer_Name: formData.name,
+      Phone_Number: formData.phone,
+      Email: formData.email || "Not provided",
+      Occasion: formData.occasion,
+      Delivery_City: formData.deliveryCity,
+      Target_Delivery_Date: formData.deliveryDate || "Flexible",
+      Custom_Gift_Card: formData.customCard ? "Yes (Included)" : "No",
+      Royal_Wax_Seal: formData.customSeal ? "Yes (Included)" : "No",
+      Selected_Hampers: hamperDetails,
+      Total_Units: totalItems,
+      Special_Instructions: formData.specialNotes || "None",
+    };
+
+    try {
+      await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.warn("Quote email dispatch:", error);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 700);
+    }
   };
 
   if (!isDrawerOpen) return null;
@@ -106,12 +144,12 @@ export function GetAQuoteModal() {
         {/* Drawer Header */}
         <div className="p-4 sm:p-5 bg-[#450206] text-white flex items-center justify-between border-b border-[#dfb758]/30 shadow-md">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/10 border border-[#dfb758]/40 flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-[#dfb758]" />
+            <div className="w-10 h-10 rounded-full bg-white/10 border border-[#dfb758]/40 flex items-center justify-center p-1 overflow-hidden">
+              <Image src="/newlogo.png" alt="Kiara's" width={40} height={40} className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-heading text-lg sm:text-xl font-semibold tracking-wide text-white">
+                <h2 className="font-heading text-lg sm:text-xl font-semibold tracking-[0.02em] text-white">
                   Get a Custom Quote
                 </h2>
                 {totalItems > 0 && (
@@ -139,21 +177,21 @@ export function GetAQuoteModal() {
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 font-sans">
           
           {isSubmitted ? (
-            /* SUCCESS CONFIRMATION STATE (NO WHATSAPP, PURE ONLINE QUOTE SUBMISSION) */
+            /* SUCCESS CONFIRMATION STATE (EMAIL DISPATCHED TO BOTH INBOXES) */
             <div className="space-y-6 text-center py-8 animate-in zoom-in-95">
               <div className="w-20 h-20 rounded-full bg-[#dfb758]/20 border-2 border-[#dfb758] flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10 text-[#450206]" />
               </div>
 
               <div className="space-y-2">
-                <span className="text-xs uppercase font-bold tracking-widest text-[#450206] bg-[#450206]/10 px-3 py-1 rounded-full font-sans">
-                  Quote Request Submitted
+                <span className="text-xs uppercase font-bold tracking-[0.02em] text-[#450206] bg-[#450206]/10 px-3 py-1 rounded-full font-sans">
+                  Quote Request Dispatched
                 </span>
                 <h3 className="font-heading text-2xl font-bold text-[#231710]">
                   Thank You, {formData.name}!
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5c4a40] max-w-sm mx-auto font-sans font-light leading-relaxed">
-                  Your bespoke inquiry for <strong className="text-[#450206]">{totalItems} hampers</strong> has been logged into our atelier management system.
+                  Your bespoke inquiry for <strong className="text-[#450206]">{totalItems} hampers</strong> has been dispatched directly to our concierge team at <strong className="text-[#450206]">anujsachan98@gmail.com</strong> &amp; <strong className="text-[#450206]">Sweta.hawkdesigning@gmail.com</strong>.
                 </p>
               </div>
 
@@ -175,6 +213,10 @@ export function GetAQuoteModal() {
                   <span>City:</span>
                   <span className="font-semibold text-[#231710]">{formData.deliveryCity}</span>
                 </div>
+                <div className="flex items-center justify-between border-t border-[#f0eae1] pt-2 text-[11px] text-[#450206]">
+                  <span>Email Sent To:</span>
+                  <span className="font-medium">anujsachan98 &amp; Sweta.hawk</span>
+                </div>
               </div>
 
               <div className="pt-2">
@@ -184,7 +226,7 @@ export function GetAQuoteModal() {
                     clearQuote();
                     closeDrawer();
                   }}
-                  className="w-full py-3.5 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-wider shadow-lg font-heading"
+                  className="w-full py-3.5 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-[0.02em] shadow-lg font-heading"
                 >
                   Done &amp; Continue Browsing
                 </button>
@@ -196,7 +238,7 @@ export function GetAQuoteModal() {
               {/* SECTION 1: Selected Hampers */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#450206] font-heading flex items-center gap-1.5">
+                  <span className="text-xs font-bold uppercase tracking-[0.02em] text-[#450206] font-heading flex items-center gap-1.5">
                     <Package className="w-3.5 h-3.5 text-[#855312]" />
                     <span>Selected Hampers ({items.length})</span>
                   </span>
@@ -313,7 +355,7 @@ export function GetAQuoteModal() {
 
               {/* SECTION 2: Patron Details (The Form) */}
               <div className="space-y-3 bg-white p-4 sm:p-5 rounded-3xl border border-[#e4dbcd] shadow-sm">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#450206] font-heading block">
+                <span className="text-xs font-bold uppercase tracking-[0.02em] text-[#450206] font-heading block">
                   Your Contact Information
                 </span>
 
@@ -443,7 +485,7 @@ export function GetAQuoteModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-xl hover:scale-[1.01] transition-transform font-heading"
+                  className="w-full py-4 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-[0.02em] flex items-center justify-center gap-2 shadow-xl hover:scale-[1.01] transition-transform font-heading"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? "Submitting Inquiry..." : "Submit Quote Request"}</span>

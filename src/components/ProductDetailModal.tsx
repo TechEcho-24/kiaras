@@ -64,7 +64,7 @@ export function ProductDetailModal() {
                 className="object-cover object-center transition-all duration-300"
               />
               <div className="absolute top-3 left-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#c89837] text-white shadow-sm font-sans">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.02em] bg-[#c89837] text-white shadow-sm font-sans">
                   <Sparkles className="w-3 h-3" />
                   {quickViewProduct.tag}
                 </span>
@@ -102,10 +102,10 @@ export function ProductDetailModal() {
             
             <div className="space-y-4">
               <div>
-                <span className="text-xs uppercase font-bold tracking-widest text-[#855312] font-sans">
+                <span className="text-xs uppercase font-bold tracking-[0.02em] text-[#855312] font-sans">
                   {quickViewProduct.collection}
                 </span>
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#231710] mt-1">
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#231710] mt-1 tracking-[0.02em]">
                   {quickViewProduct.name}
                 </h2>
                 <p className="text-xs text-[#6b584c] italic mt-0.5 font-sans">
@@ -128,7 +128,7 @@ export function ProductDetailModal() {
 
               {/* Key Highlights */}
               <div className="space-y-2 pt-2 border-t border-[#f0eae1]">
-                <span className="font-heading text-xs font-bold uppercase tracking-wider text-[#450206] block">
+                <span className="font-heading text-xs font-bold uppercase tracking-[0.02em] text-[#450206] block">
                   Artisanal Specifications:
                 </span>
                 <ul className="space-y-1.5 font-sans">
@@ -179,7 +179,7 @@ export function ProductDetailModal() {
 
                 <button
                   onClick={handleAddToQuote}
-                  className="flex-1 py-3 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all font-heading"
+                  className="flex-1 py-3 px-6 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-[0.02em] flex items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all font-heading"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>Add to Quote ({quantity} units)</span>

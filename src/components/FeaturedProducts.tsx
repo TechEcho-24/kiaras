@@ -23,7 +23,7 @@ export function FeaturedProducts({
         {/* Section Header exactly matching User's Reference Screenshot (media_1792044109586.png) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline mb-12">
           <div className="md:col-span-5">
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-[#231710] font-bold tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-[#231710] font-bold tracking-[0.02em]">
               Signature Luxury Hampers
             </h2>
           </div>
@@ -37,7 +37,7 @@ export function FeaturedProducts({
           <div className="md:col-span-2 text-left md:text-right">
             <Link
               href="/catalog"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium tracking-wide text-[#231710] hover:text-[#450206] transition-colors group font-sans underline underline-offset-4 decoration-[#231710]/40"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium tracking-[0.02em] text-[#231710] hover:text-[#450206] transition-colors group font-sans underline underline-offset-4 decoration-[#231710]/40"
             >
               <span>All Products</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

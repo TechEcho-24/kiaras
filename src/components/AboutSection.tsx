@@ -66,7 +66,7 @@ export function AboutSection() {
               
               {/* Badge: ABOUT US */}
               <div>
-                <span className="inline-block px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#450206]/10 text-[#450206] border border-[#dfb758]/40 font-sans">
+                <span className="inline-block px-4 py-1 rounded-full text-xs font-bold tracking-[0.02em] uppercase bg-[#450206]/10 text-[#450206] border border-[#dfb758]/40 font-sans">
                   About Us
                 </span>
               </div>
@@ -76,8 +76,6 @@ export function AboutSection() {
                 <h2 className="font-heading text-3xl sm:text-4xl text-[#1a0204] font-bold leading-tight">
                   Crafting Joy, One Luxury Hamper at a Time
                 </h2>
-                {/* #450206 accent underline bar */}
-                <div className="w-16 h-1 bg-[#450206] rounded-full mt-3" />
               </div>
 
               {/* Body Text matching screenshot */}
@@ -114,7 +112,7 @@ export function AboutSection() {
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   onClick={() => openDrawer()}
-                  className="px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-[#240508] gold-gradient-btn rounded-full shadow-lg text-center font-heading"
+                  className="px-7 py-3.5 text-xs font-bold uppercase tracking-[0.02em] text-[#240508] gold-gradient-btn rounded-full shadow-lg text-center font-heading"
                 >
                   Start Custom Order
                 </button>
@@ -123,7 +121,7 @@ export function AboutSection() {
                   href="https://wa.me/919891993626?text=Hello%20Kiara's,%20I%20would%20love%20to%20discuss%20a%20custom%20hamper%20order."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 text-xs font-semibold tracking-wider text-[#450206] hover:bg-[#450206]/5 border border-[#450206]/30 rounded-full text-center transition-colors flex items-center justify-center gap-2.5 font-sans"
+                  className="px-6 py-3.5 text-xs font-semibold tracking-[0.02em] text-[#450206] hover:bg-[#450206]/5 border border-[#450206]/30 rounded-full text-center transition-colors flex items-center justify-center gap-2.5 font-sans"
                 >
                   <WhatsAppIcon className="w-4 h-4 shrink-0" />
                   <span>Chat on WhatsApp</span>
