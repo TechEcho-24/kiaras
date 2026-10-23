@@ -119,16 +119,40 @@ export function GetAQuoteModal() {
         currency: "INR",
       });
 
-      await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+      // Send to server API route (bypasses browser ad-blockers and dispatches to both inboxes)
+      const res = await fetch("/api/quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
+
+      if (!res.ok) {
+        // Fallback directly to formsubmit if needed
+        await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      }
     } catch (error) {
       console.warn("Quote email dispatch:", error);
+      try {
+        await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      } catch (fbErr) {
+        console.warn("Fallback dispatch:", fbErr);
+      }
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -200,7 +224,7 @@ export function GetAQuoteModal() {
                   Thank You, {formData.name}!
                 </h3>
                 <p className="text-xs sm:text-sm text-[#5c4a40] max-w-sm mx-auto font-sans font-light leading-relaxed">
-                  Your bespoke inquiry for <strong className="text-[#450206]">{totalItems} hampers</strong> has been dispatched directly to our concierge team at <strong className="text-[#450206]">anujsachan98@gmail.com</strong> &amp; <strong className="text-[#450206]">Sweta.hawkdesigning@gmail.com</strong>.
+                  Your bespoke inquiry for <strong className="text-[#450206]">{totalItems} hampers</strong> has been received by our atelier concierge team. We will review your selections and contact you shortly with the proposal.
                 </p>
               </div>
 

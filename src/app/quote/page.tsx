@@ -104,14 +104,26 @@ function QuotePageContent() {
     };
 
     try {
-      await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+      // Send to server API route (bypasses browser ad-blockers and dispatches to both inboxes)
+      const res = await fetch("/api/quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
+
+      if (!res.ok) {
+        // Fallback directly to formsubmit
+        await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      }
 
       // Facebook Pixel Lead Event
       fpixel.event("Lead", {
@@ -123,6 +135,18 @@ function QuotePageContent() {
       });
     } catch (error) {
       console.warn("Quote email dispatch:", error);
+      try {
+        await fetch("https://formsubmit.co/ajax/anujsachan98@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      } catch (fbErr) {
+        console.warn("Fallback dispatch:", fbErr);
+      }
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -186,7 +210,7 @@ Please share the bespoke proposal and pricing.`;
                 Quote Request Dispatched
               </h2>
               <p className="text-xs sm:text-sm text-[#6b584c] font-sans font-light leading-relaxed">
-                Thank you, {formData.name || "Esteemed Patron"}. Your bespoke request for {totalItems} hampers has been dispatched to <strong className="text-[#450206]">anujsachan98@gmail.com</strong> &amp; <strong className="text-[#450206]">Sweta.hawkdesigning@gmail.com</strong>. Reference ID: <strong className="text-[#450206] font-mono">{quoteReferenceId}</strong>.
+                Thank you, {formData.name || "Esteemed Patron"}. Your bespoke request for {totalItems} hampers has been received by our atelier concierge. Reference ID: <strong className="text-[#450206] font-mono">{quoteReferenceId}</strong>. Our gifting consultant will connect with you shortly with the curated proposal.
               </p>
 
               <div className="space-y-3 pt-4">

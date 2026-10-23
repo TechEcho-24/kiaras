@@ -10,7 +10,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { GetAQuoteModal } from "@/components/GetAQuoteModal";
 import { SearchModal } from "@/components/SearchModal";
 import { Toast } from "@/components/Toast";
-import { Sparkles, Search, ArrowUpDown } from "lucide-react";
+import { Sparkles, Search, ArrowUpDown, FileDown, FileText, ExternalLink } from "lucide-react";
 
 function CatalogContent() {
   const searchParams = useSearchParams();
@@ -51,7 +51,7 @@ function CatalogContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Banner */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#450206]/10 border border-[#450206]/20 text-[#450206] text-xs font-semibold uppercase tracking-[0.02em] mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5 text-[#855312]" />
               <span>Full Artisanal Catalog</span>
@@ -59,13 +59,83 @@ function CatalogContent() {
             </div>
             
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-[#231710] font-bold tracking-[0.02em]">
-              Curated Luxury Hampers &amp; Boxes
+              Kiara’s Luxury Hamper Catalog
             </h1>
             
             <div className="w-16 h-1 bg-[#450206] mx-auto my-3 rounded-full" />
             
             <p className="text-sm sm:text-base text-[#6b584c] mt-2 font-sans font-light leading-relaxed">
-              Explore our complete collection of {PRODUCTS.length} master handcrafted gift boxes. Select any design to request a personalized quote with bespoke dry fruits, sweets, and monogramming.
+              Explore our master handcrafted lookbook in high resolution below, or download the complete PDF brochure directly to your device.
+            </p>
+          </div>
+
+          {/* 1. Embedded PDF Viewer Container */}
+          <div className="mb-4 rounded-3xl overflow-hidden border border-[#dfb758]/40 bg-[#231710] shadow-2xl">
+            <div className="w-full h-[650px] sm:h-[800px] md:h-[950px] bg-[#1a0204]">
+              <object
+                data="/catalog.pdf#toolbar=1&navpanes=0&scrollbar=1"
+                type="application/pdf"
+                className="w-full h-full"
+              >
+                <iframe
+                  src="/catalog.pdf#toolbar=1&navpanes=0"
+                  className="w-full h-full border-0"
+                  title="Kiara's Luxury Hamper Catalog"
+                >
+                  <p className="p-8 text-center text-[#ede5d8] text-sm">
+                    Your browser does not support inline PDF viewing. Please use the button below to download or view the PDF catalog.
+                  </p>
+                </iframe>
+              </object>
+            </div>
+          </div>
+
+          {/* 2. Directly beneath the PDF: "Download PDF" Action Bar */}
+          <div className="mb-14 p-5 sm:p-6 bg-white border border-[#dfd4c2] rounded-3xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5 text-left w-full sm:w-auto">
+              <div className="w-12 h-12 rounded-2xl bg-[#dfb758]/20 border border-[#dfb758] flex items-center justify-center text-[#450206] shrink-0">
+                <FileText className="w-6 h-6 text-[#855312]" />
+              </div>
+              <div>
+                <h3 className="font-heading font-bold text-base sm:text-lg text-[#231710]">
+                  Kiara’s Master Gifting Lookbook
+                </h3>
+                <p className="text-xs text-[#6b584c] font-sans">
+                  Complete 2026 Collection • High-Resolution Artwork &amp; Inclusions
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+              <a
+                href="/catalog.pdf"
+                download="Kiaras-Luxury-Catalog.pdf"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full gold-gradient-btn text-[#240508] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all font-heading hover:scale-[1.02]"
+              >
+                <FileDown className="w-4 h-4" />
+                <span>Download PDF</span>
+              </a>
+
+              <a
+                href="/catalog.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-full border border-[#450206]/30 text-[#450206] hover:bg-[#450206]/5 font-semibold text-xs uppercase tracking-wider transition-colors font-sans"
+                title="Open PDF in new window"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span className="hidden sm:inline">Fullscreen</span>
+              </a>
+            </div>
+          </div>
+
+          {/* 3. Section Divider: Individual Hamper Selection & Quotation */}
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="font-heading text-2xl sm:text-3xl text-[#231710] font-bold tracking-[0.02em]">
+              Browse &amp; Inquire by Hamper ({PRODUCTS.length} Signature Creations)
+            </h2>
+            <p className="text-xs sm:text-sm text-[#6b584c] mt-2 font-sans font-light">
+              Filter by occasion, theme, or materials below to request instant bespoke pricing:
             </p>
           </div>
 

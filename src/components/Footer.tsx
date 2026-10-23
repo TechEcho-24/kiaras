@@ -111,6 +111,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <a
+                  href="/catalog.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#dfb758] transition-colors flex items-center gap-1.5"
+                >
+                  <span>Download Catalog (PDF)</span>
+                </a>
+              </li>
+              <li>
                 <a href="#about" className="hover:text-[#dfb758] transition-colors">
                   Our Story
                 </a>
@@ -190,12 +200,12 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 mt-12 border-t border-[#dfb758]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#ede5d8]/65 font-sans">
+        <div className="pt-12 mt-12 border-t border-[#dfb758]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#ede5d8]/65 font-sans pb-16 sm:pb-8">
           <p>© 2026 Kiara’s. Decadence Redefined. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <Link href="/privacy-policy" className="hover:text-[#dfb758] transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-[#dfb758] transition-colors">Terms of Service</Link>
-            <Link href="/shipping-and-returns" className="hover:text-[#dfb758] transition-colors">Shipping &amp; Returns</Link>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 sm:pr-24 relative z-20">
+            <Link href="/privacy-policy" className="hover:text-[#dfb758] transition-colors py-1">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-[#dfb758] transition-colors py-1">Terms of Service</Link>
+            <Link href="/shipping-and-returns" className="hover:text-[#dfb758] transition-colors py-1">Shipping &amp; Returns</Link>
           </div>
         </div>
 

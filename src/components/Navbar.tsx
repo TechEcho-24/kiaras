@@ -10,7 +10,8 @@ import {
   ShoppingBag,
   Menu,
   X,
-  Sparkles
+  Sparkles,
+  FileDown
 } from "lucide-react";
 import * as fpixel from "@/lib/fpixel";
 
@@ -32,7 +33,7 @@ export function Navbar({ onOpenSearch }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Home is removed from navLinks as it is now accessed via the center Brand Logo
+  // Navigation Links: Menu button is Catalog which opens the catalog page with PDF
   const navLinks = [
     { label: "Catalog", href: "/catalog" },
     { label: "Collections", href: "/#collections" },
